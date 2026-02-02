@@ -1,6 +1,6 @@
 # Distributed Rate Limiting Service
 
-A production-ready distributed rate limiting backend service built with **FastAPI** and **Redis**.  
+A distributed rate limiting backend service built with **FastAPI** and **Redis**.  
 Enforces API request quotas using a **sliding window algorithm** — stateless, horizontally scalable, and cloud-native.
 
 ![Python](https://img.shields.io/badge/python-3.11-blue)
@@ -10,14 +10,14 @@ Enforces API request quotas using a **sliding window algorithm** — stateless, 
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 
 In large-scale backend systems, APIs must be protected from abuse, accidental overuse, and denial-of-service scenarios.  
 This service provides **centralized, distributed rate limiting** that can be shared across multiple API instances.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -36,9 +36,11 @@ This service provides **centralized, distributed rate limiting** that can be sha
 - **Atomic Lua Scripts** — Race-condition-free Redis operations in a single round-trip
 - **Stateless API** — Horizontally scalable, Redis handles all coordination
 
+The API layer remains stateless, enabling horizontal scaling without coordination between instances.
+
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── app/
@@ -53,7 +55,7 @@ This service provides **centralized, distributed rate limiting** that can be sha
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone and run
@@ -75,7 +77,7 @@ done
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -97,7 +99,7 @@ HTTP 429
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -107,9 +109,9 @@ HTTP 429
 
 ---
 
-## ☁️ Cloud Deployment
+## Cloud Deployment
 
-Designed for deployment on **Google Cloud Run** with **Redis Cloud** (or GCP Memorystore).
+Designed to be deployable on **Google Cloud Run** with **Redis Cloud** or GCP Memorystore.
 
 ```bash
 # Build & push to Artifact Registry
@@ -124,7 +126,7 @@ gcloud run deploy rate-limiter-api \
 
 ---
 
-## 📈 Future Improvements
+## Future Improvements
 
 - [ ] Per-client configurable rate limits
 - [ ] Prometheus metrics export
@@ -133,6 +135,6 @@ gcloud run deploy rate-limiter-api \
 
 ---
 
-## 📄 License
+## License
 
 MIT License © 2026 Shreyash
