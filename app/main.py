@@ -42,7 +42,7 @@ async def rate_limit_middleware(request: Request, call_next):
         analytics.log_violation(client_id, endpoint)
         return JSONResponse(
             status_code=429,
-            content={"detail": "Too many requests, asshole. Slow down."}
+            content={"detail": "Too many requests. Please retry later."}
         )
 
     # Log valid request for analytics
